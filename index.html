@@ -1,0 +1,181 @@
+<!DOCTYPE html>  <html lang="fr">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Générateur de mots de passe sécurisé gratuit | Password Generator</title>  <meta name="description" content="Générez des mots de passe forts et sécurisés pour protéger vos comptes en ligne. Gratuit et facile à utiliser.">  
+<meta name="keywords" content="générateur de mot de passe, password generator, mot de passe sécurisé, créer mot de passe fort">  
+<meta name="author" content="Israël ADAKPON">  
+<meta name="robots" content="index, follow">  <!-- Open Graph -->  <meta property="og:title" content="Générateur de mots de passe sécurisé">  
+<meta property="og:description" content="Créez des mots de passe forts et sécurisés gratuitement.">  
+<meta property="og:type" content="website">  <!-- Google AdSense -->  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7476983401819917"  
+     crossorigin="anonymous"></script>  <style>  
+body{  
+  font-family: Arial, sans-serif;  
+  background: linear-gradient(135deg,#1e3c72,#2a5298);  
+  min-height:100vh;  
+  margin:0;  
+  display:flex;  
+  justify-content:center;  
+  align-items:center;  
+  color:#fff;  
+}  
+.container{  
+  background:#111;  
+  padding:25px;  
+  border-radius:12px;  
+  width:100%;  
+  max-width:420px;  
+  box-shadow:0 10px 30px rgba(0,0,0,.4);  
+}  
+h1{  
+  text-align:center;  
+  font-size:22px;  
+}  
+p{  
+  font-size:14px;  
+  line-height:1.5;  
+  margin-bottom:15px;  
+}  
+.output{  
+  background:#222;  
+  padding:12px;  
+  border-radius:6px;  
+  display:flex;  
+  justify-content:space-between;  
+  align-items:center;  
+  margin-bottom:15px;  
+}  
+.output input{  
+  background:none;  
+  border:none;  
+  color:#0f0;  
+  width:100%;  
+  font-size:16px;  
+}  
+button{  
+  background:#00c853;  
+  border:none;  
+  color:#000;  
+  padding:10px;  
+  width:100%;  
+  border-radius:6px;  
+  font-size:16px;  
+  cursor:pointer;  
+}  
+button:hover{opacity:.9}  
+.options label{  
+  display:flex;  
+  justify-content:space-between;  
+  margin:8px 0;  
+}  
+.copy{  
+  background:#2979ff;  
+  color:#fff;  
+  border:none;  
+  padding:6px 10px;  
+  border-radius:4px;  
+  cursor:pointer;  
+  margin-left:5px;  
+}  
+.ads{  
+  background:#020617;  
+  border:1px dashed #334155;  
+  margin:12px 0;  
+  padding:10px;  
+  font-size:12px;  
+  text-align:center;  
+  opacity:.7;  
+}  
+footer{  
+  text-align:center;  
+  font-size:12px;  
+  opacity:.7;  
+  margin-top:10px;  
+}  
+a{color:#38bdf8;text-decoration:none;}  
+section{margin-top:15px;}  
+section h2{font-size:16px; margin-bottom:8px;}  
+section ul{font-size:14px; margin-left:15px;}  
+</style>  </head>  <body>  <div class="container">  
+  <h1>🔐 Générateur de mot de passe</h1>    <p>Bienvenue sur notre générateur de mots de passe sécurisé. Créez instantanément des mots de passe forts et aléatoires pour protéger vos comptes en ligne. Fonctionne directement dans votre navigateur, gratuit et sans inscription.</p>    <div class="output">  
+    <input id="password" readonly placeholder="Mot de passe généré">  
+    <button class="copy" onclick="copy()">Copier</button>  
+  </div>    <div class="options">  
+    <label>Longueur  
+      <input type="number" id="length" min="6" max="32" value="16">  
+    </label>  
+    <label>Majuscules  
+      <input type="checkbox" id="upper" checked>  
+    </label>  
+    <label>Minuscules  
+      <input type="checkbox" id="lower" checked>  
+    </label>  
+    <label>Chiffres  
+      <input type="checkbox" id="numbers" checked>  
+    </label>  
+    <label>Symboles  
+      <input type="checkbox" id="symbols" checked>  
+    </label>  
+  </div>  <button onclick="generate()">Générer</button>
+
+  <!-- Publicité AdSense -->  <ins class="adsbygoogle"  
+style="display:block; text-align:center;"  
+data-ad-client="ca-pub-7476983401819917"  
+data-ad-slot="1234567890"  
+data-ad-format="auto"  
+data-full-width-responsive="true"></ins>
+
+  <script>  
+       (adsbygoogle = window.adsbygoogle || []).push({});  
+  </script>    <!-- Conseils pour sécuriser les mots de passe -->    <section>  
+    <h2>Conseils pour un mot de passe sécurisé</h2>  
+    <ul>  
+      <li>Utilisez une combinaison de majuscules, minuscules, chiffres et symboles.</li>  
+      <li>Ne réutilisez jamais le même mot de passe sur plusieurs comptes.</li>  
+      <li>Changez régulièrement vos mots de passe importants.</li>  
+      <li>Conservez vos mots de passe dans un gestionnaire sécurisé.</li>  
+    </ul>  
+  </section>    <footer>  
+    <a href="privacy.html">Confidentialité</a> |  
+    <a href="terms.html">Conditions</a> |  
+    <a href="about.html">À propos / Contact</a>  
+  </footer>  
+</div>  <script>  
+function generate(){  
+  const length = +document.getElementById("length").value;  
+  const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
+  const lower = "abcdefghijklmnopqrstuvwxyz";  
+  const numbers = "0123456789";  
+  const symbols = "!@#$%^&*()_+{}[]<>?";  
+  
+  let chars = "";  
+  if(document.getElementById("upper").checked) chars += upper;  
+  if(document.getElementById("lower").checked) chars += lower;  
+  if(document.getElementById("numbers").checked) chars += numbers;  
+  if(document.getElementById("symbols").checked) chars += symbols;  
+  
+  if(chars === ""){  
+    alert("Sélectionne au moins une option");  
+    return;  
+  }  
+  
+  let pwd = "";  
+  for(let i=0;i<length;i++){  
+    pwd += chars[Math.floor(Math.random()*chars.length)];  
+  }  
+  document.getElementById("password").value = pwd;  
+}  
+  
+function copy(){  
+  const pwd = document.getElementById("password");  
+  pwd.select();  
+  document.execCommand("copy");  
+  alert("Mot de passe copié ✅");  
+}  
+</script>  <!-- SEO texte caché -->  <section style="display:none">  
+<h2>Générateur de mots de passe sécurisé</h2>  
+<p>  
+Ce site permet de générer des mots de passe forts, aléatoires et sécurisés  
+pour protéger vos comptes en ligne. Password generator free online.  
+</p>  
+</section>  </body>  
+</html>
